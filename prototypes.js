@@ -9,21 +9,21 @@ function Character(name) {
 }
 
 Character.prototype.getPosition = function() {
-    console.log (`${this.name}'s x position is ${this.x} and y position is ${this.y}`);
+    return `${this.name}'s x position is ${this.x} and y position is ${this.y}`;
 }
 
 Character.prototype.setPosition = function(x,y) {
   if(x < 1 || y < 1 || x > 10 || y > 10) {
-    console.log('Position is out of the range');
+    return 'Position is out of the range';
   } else {
     this.x = x;
     this.y = y;
-    console.log(`Position x is set to ${x} and postion y to ${y}`);
+    return `Position x is set to ${x} and postion y to ${y}`;
   }
 }
 
 Character.getCharacterCount = function() {
-  console.log(characterCount);
+  return characterCount;
 }
 
 function PlayerCharacter(name){
@@ -36,12 +36,15 @@ function NonPlayerCharacter(name){
 
 //Extending the properties of the base class
 PlayerCharacter.prototype = Object.create(Character.prototype);
+PlayerCharacter.prototype.constructor = PlayerCharacter;
 NonPlayerCharacter.prototype = Object.create(Character.prototype);
+NonPlayerCharacter.prototype.constructor = NonPlayerCharacter;
+
 
 const player = new PlayerCharacter('Dusanka');
 const nonplayer = new NonPlayerCharacter('Bojan');
 console.log(nonplayer.getPosition());
-console.log(player.getPosition(), player.setPosition(0, 2));
+console.log(player.setPosition(0, 2));
 console.log(Character.getCharacterCount());
 
 
