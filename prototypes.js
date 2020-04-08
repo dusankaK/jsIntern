@@ -1,10 +1,10 @@
-let counter = 0;
+let characterCount = 0;
 
-function Character(name, x, y) {
+function Character(name) {
   this.name = name;
   this.x = Math.round(Math.random()*10);
   this.y = Math.round(Math.random()*10);
-  Character.counter++;
+  characterCount++;
   console.log('Character created')
 }
 
@@ -23,7 +23,7 @@ Character.prototype.setPosition = function(x,y) {
 }
 
 Character.getCharacterCount = function() {
-  return this.counter;
+  console.log(characterCount);
 }
 
 function PlayerCharacter(name){
@@ -42,6 +42,7 @@ const player = new PlayerCharacter('Dusanka');
 const nonplayer = new NonPlayerCharacter('Bojan');
 console.log(nonplayer.getPosition());
 console.log(player.getPosition(), player.setPosition(0, 2));
+console.log(Character.getCharacterCount());
 
 
 
